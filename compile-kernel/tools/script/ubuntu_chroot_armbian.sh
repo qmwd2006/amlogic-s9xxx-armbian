@@ -203,7 +203,7 @@ check_dependencies
 # Generate uInitrd
 generate_uinitrd
 # Make kernel scripts
-make_kernel_scripts
+#make_kernel_scripts
 # Packit header
 packit_header
 
