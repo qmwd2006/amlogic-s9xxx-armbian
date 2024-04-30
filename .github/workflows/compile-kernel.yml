@@ -13,15 +13,16 @@ on:
       kernel_source:
         description: "Select the kernel source"
         required: false
-        default: "unifreq"
+        default: "qmwd2006"
         type: choice
         options:
+          - qmwd2006
           - unifreq
           - codesnas
       kernel_version:
         description: "Select kernel version"
         required: false
-        default: "6.6.y"
+        default: "5.15.y"
         type: choice
         options:
           - 5.4.y
