@@ -452,16 +452,17 @@ chroot_armbian() {
     cp -rf ${output_path}/modules/lib/modules/${kernel_outname} -t ${tag_rootfs}/usr/lib/modules
     #echo -e "${INFO} Kernel copy results in the [ ${tag_rootfs}/usr/lib/modules ] directory: \n$(ls -l ${tag_rootfs}/usr/lib/modules) \n"
 
-    cd ${kernel_path}/${local_kernel_path}
+    #cd ${kernel_path}/${local_kernel_path}
 
     echo -e "${INFO} Copy the kernel source tree to the armbian system..."
     # Set the kernel source tree path
     armbian_kernel_path="${tag_rootfs}/opt/linux-kernel"
-    mkdir -p ${armbian_kernel_path}
+    #mkdir -p ${armbian_kernel_path}
     # Set the git configuration and copy the kernel source tree
-    git config --global --add safe.directory ${PWD}
-    git archive --format=tar ${code_branch} | tar xf - -C ${armbian_kernel_path}
-    cp -f .config Module.symvers ${armbian_kernel_path}
+    #git config --global --add safe.directory ${PWD}
+    #git archive --format=tar ${code_branch} | tar xf - -C ${armbian_kernel_path}
+    #cp -f .config Module.symvers ${armbian_kernel_path}
+    cp -rf ${kernel_path}/${local_kernel_path} ${armbian_kernel_path}
     [[ "${?}" -eq "0" ]] || error_msg "Copy the kernel source tree to the armbian system failed."
 
     cd ${current_path}
