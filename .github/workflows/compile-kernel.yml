@@ -16,7 +16,7 @@ on:
         default: "qmwd2006"
         type: choice
         options:
-          - qmwd2006
+          - qmwd2006/linux-5.15.156@main
           - unifreq
           - codesnas
       kernel_version:
