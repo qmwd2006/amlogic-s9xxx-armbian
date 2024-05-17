@@ -13,15 +13,16 @@ on:
       kernel_source:
         description: "Select the kernel source"
         required: false
-        default: "unifreq"
+        default: "qmwd2006/android-kernel@android13-5.15.y"
         type: choice
         options:
+          - qmwd2006/android-kernel@android13-5.15.y
           - unifreq
           - codesnas
       kernel_version:
         description: "Select kernel version"
         required: false
-        default: "qmwd2006/android-kernel@android13-5.15.y"
+        default: "5.15.y"
         type: choice
         options:
           - 5.4.y
@@ -31,7 +32,6 @@ on:
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
-          - qmwd2006/android-kernel@android13-5.15
       kernel_auto:
         description: "Auto use the latest kernel"
         required: false
