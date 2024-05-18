@@ -298,14 +298,14 @@ jobs:
 
           mkdir -p /builder/build
           ln -sf /builder/build ${GITHUB_WORKSPACE}/build
-          ln -sf /builder/build /home/runner/work/_actions/qmwd2006/amlogic-s9xxx-armbian/android13-5.15.y/build
+          ln -sf /builder/build /home/runner/work/_actions/qmwd2006/amlogic-s9xxx-armbian/android13-5.15/build
 
           sudo timedatectl set-timezone "${TZ}"
           echo "build_tag=Armbian${set_release}_${{ inputs.armbian_storage }}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Rebuild Armbian
-        uses: qmwd2006/amlogic-s9xxx-armbian@android13-5.15.y
+        uses: qmwd2006/amlogic-s9xxx-armbian@android13-5.15
         if: ${{ env.ARMBIAN_URL }} != '' && !cancelled()
         with:
           build_target: armbian
