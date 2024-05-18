@@ -16,7 +16,7 @@ on:
       armbian_board:
         description: "Select device board."
         required: false
-        default: "all"
+        default: "s905d"
         type: choice
         options:
           - all
@@ -152,12 +152,13 @@ on:
       armbian_kernel:
         description: "Select kernel version."
         required: false
-        default: "6.1.y_6.6.y"
+        default: "5.15.148"
         type: choice
         options:
           - 5.4.y
           - 5.10.y
           - 5.15.y
+          - 5.15.148
           - 6.1.y
           - 6.6.y
           - 6.1.y_6.6.y
@@ -165,25 +166,27 @@ on:
       auto_kernel:
         description: "Auto use the latest kernel."
         required: false
-        default: true
+        default: false
         type: boolean
       kernel_repo:
         description: "Set the kernel repository."
         required: false
-        default: "ophub/kernel"
+        default: "qmwd2006/amlogic-s9xxx-armbian"
         type: choice
         options:
           - ophub/kernel
+          - qmwd2006/amlogic-s9xxx-armbian
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
-        default: "stable"
+        default: "android"
         type: choice
         options:
           - stable
           - flippy
           - dev
           - beta
+          - android
       armbian_fstype:
         description: "Set armbian rootfs type."
         required: false
@@ -319,7 +322,7 @@ jobs:
         uses: ncipollo/release-action@main
         if: ${{ env.PACKAGED_STATUS }} == 'success' && !cancelled()
         with:
-          tag: ${{ steps.down.outputs.build_tag }}
+          tag: android-${{ steps.down.outputs.build_tag }}
           artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
           allowUpdates: true
           removeArtifacts: false
