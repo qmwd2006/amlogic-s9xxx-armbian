@@ -97,6 +97,7 @@ stable_kernel=("6.6.y" "6.1.y")
 flippy_kernel=(${stable_kernel[@]})
 dev_kernel=(${stable_kernel[@]})
 beta_kernel=(${stable_kernel[@]})
+android_kernel=(${stable_kernel[@])
 # Set to automatically use the latest kernel
 auto_kernel="true"
 
@@ -210,6 +211,7 @@ init_var() {
                 stable_kernel=(${2})
                 dev_kernel=(${2})
                 beta_kernel=(${2})
+                android_kernel=(${2})
                 specific_kernel=(${2})
                 IFS="${oldIFS}"
                 shift
@@ -395,6 +397,7 @@ query_kernel() {
             flippy) down_kernel_list=(${flippy_kernel[@]}) ;;
             dev) down_kernel_list=(${dev_kernel[@]}) ;;
             beta) down_kernel_list=(${beta_kernel[@]}) ;;
+            android) down_kernel_list=(${android_kernel[@]}) ;;
             rk3588) down_kernel_list=(${rk3588_kernel[@]}) ;;
             rk35xx) down_kernel_list=(${rk35xx_kernel[@]}) ;;
             h6) down_kernel_list=(${h6_kernel[@]}) ;;
@@ -447,6 +450,7 @@ query_kernel() {
             flippy) flippy_kernel=(${tmp_arr_kernels[@]}) ;;
             dev) dev_kernel=(${tmp_arr_kernels[@]}) ;;
             beta) beta_kernel=(${tmp_arr_kernels[@]}) ;;
+            android) android_kernel=(${tmp_arr_kernels[@]}) ;;
             rk3588) rk3588_kernel=(${tmp_arr_kernels[@]}) ;;
             rk35xx) rk35xx_kernel=(${tmp_arr_kernels[@]}) ;;
             h6) h6_kernel=(${tmp_arr_kernels[@]}) ;;
@@ -491,6 +495,7 @@ download_kernel() {
             flippy) down_kernel_list=(${flippy_kernel[@]}) ;;
             dev) down_kernel_list=(${dev_kernel[@]}) ;;
             beta) down_kernel_list=(${beta_kernel[@]}) ;;
+            android) down_kernel_list=(${android_kernel[@]}) ;;
             rk3588) down_kernel_list=(${rk3588_kernel[@]}) ;;
             rk35xx) down_kernel_list=(${rk35xx_kernel[@]}) ;;
             h6) down_kernel_list=(${h6_kernel[@]}) ;;
@@ -1142,6 +1147,7 @@ loop_rebuild() {
             flippy) kernel_list=(${flippy_kernel[@]}) ;;
             dev) kernel_list=(${dev_kernel[@]}) ;;
             beta) kernel_list=(${beta_kernel[@]}) ;;
+            android) kernel_list=(${android_kernel[@]}) ;;
             rk3588) kernel_list=(${rk3588_kernel[@]}) ;;
             rk35xx) kernel_list=(${rk35xx_kernel[@]}) ;;
             h6) kernel_list=(${h6_kernel[@]}) ;;
