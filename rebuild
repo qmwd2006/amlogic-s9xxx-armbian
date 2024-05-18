@@ -97,7 +97,7 @@ stable_kernel=("6.6.y" "6.1.y")
 flippy_kernel=(${stable_kernel[@]})
 dev_kernel=(${stable_kernel[@]})
 beta_kernel=(${stable_kernel[@]})
-android_kernel=(${stable_kernel[@])
+android_kernel=(${stable_kernel[@]})
 # Set to automatically use the latest kernel
 auto_kernel="true"
 
