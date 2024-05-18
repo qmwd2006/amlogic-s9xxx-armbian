@@ -158,12 +158,13 @@ on:
       armbian_kernel:
         description: "Select kernel version."
         required: false
-        default: "6.1.y_6.6.y"
+        default: "5.15.148"
         type: choice
         options:
           - 5.4.y
           - 5.10.y
           - 5.15.y
+          - 5.15.148
           - 6.1.y
           - 6.6.y
           - 6.1.y_6.6.y
@@ -176,20 +177,22 @@ on:
       kernel_repo:
         description: "Set the kernel repository."
         required: false
-        default: "ophub/kernel"
+        default: "qmwd2006/amlogic-s9xxx-armbian"
         type: choice
         options:
           - ophub/kernel
+          - qmwd2006/amlogic-s9xxx-armbian
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
-        default: "stable"
+        default: "android"
         type: choice
         options:
           - stable
           - flippy
           - dev
           - beta
+          - android
       armbian_fstype:
         description: "Select armbian rootfs type."
         required: false
@@ -332,7 +335,7 @@ jobs:
         uses: ncipollo/release-action@main
         if: ${{ env.PACKAGED_STATUS }} == 'success' && !cancelled()
         with:
-          tag: ${{ steps.clean.outputs.build_tag }}
+          tag: android-${{ steps.clean.outputs.build_tag }}
           artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
           allowUpdates: true
           removeArtifacts: false
